@@ -6,7 +6,8 @@ url = 'https://www.hospitalsafetygrade.org/all-hospitals'
 html = URI.open(url)
 doc = Nokogiri::HTML(html)
 
-CSV.open('hospitals.csv', 'w', col_sep: ', ') do |csv|
+
+CSV.open('hospitals.csv', 'w', col_sep: '; ') do |csv|
   csv << ['Автоінкрементне число', 'Назва лікарні']
 
   doc.css('div.column1 li').each_with_index do |li, index|
